@@ -26,8 +26,9 @@ import plotly.io as pio
 from set_up import parse_lumi_file
 from set_up import vbg_get
 
-#NOTE I did not complete this. I still need to account for comparisons between Vana Corrected Layers. Only Vana Raw
-
+#NOTE I did not complete this. I still need to account for comparisons between Vana Corrected Layers. Only Vana Raw. Also needs to use the new update files and add the lumi to dose corrections for FPIX. Just steal from my 
+#section
+#T
 
 
 
