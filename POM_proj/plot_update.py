@@ -48,17 +48,17 @@ def update_plot(plot_name,mode,variable,graph_type,category,xaxis,query, run_num
         if "LYR4" in query:
             lumi_to_dose = .000252
         if "FPIX" in query:
-			if "D1-in" in query:
+			if "D1" in query and ("BpI" in query or "BmI" in query):
 				lumi_to_dose = .0008096
-			if "D1-out" in query:
+			if "D1" in query and ("BpO" in query or "BmO" in query):
 				lumi_to_dose = .0003854
-			if "D2-in" in query:
+			if "D2" in query and ("BpI" in query or "BmI" in query):
 				lumi_to_dose = .0008438
-			if "D2-out" in query:
+			if "D2" in query and ("BpO" in query or "BmO" in query):
 				lumi_to_dose = .0003995
-			if "D3-in" in query:
+			if "D3" in query and ("BpI" in query or "BmI" in query):
 				lumi_to_dose = .0008696
-			if "D2-out" in query:
+			if "D3" in query and ("BpO" in query or "BmO" in query):
 				lumi_to_dose = .0004180
             
 
