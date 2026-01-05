@@ -35,7 +35,8 @@ def update_plot(plot_name,mode,variable,graph_type,category,xaxis,query, run_num
         #check_lumi.check_lumi()
 
 
-        #Define dosage due to luminoisty
+        #Define dosage due to luminoisty for both BPix and FPix
+		#Checked with Fluka to ensure somewhat same in approximation
         lumi_to_dose= 0 #If wrong, assinges no lumi correction
         
         if "LYR1" in query:
@@ -47,7 +48,19 @@ def update_plot(plot_name,mode,variable,graph_type,category,xaxis,query, run_num
         if "LYR4" in query:
             lumi_to_dose = .000252
         if "FPIX" in query:
-            lumi_to_dose = 0;
+			if "D1-in" in query:
+				lumi_to_dose = .0008096
+			if "D1-out" in query:
+				lumi_to_dose = .0003854
+			if "D2-in" in query:
+				lumi_to_dose = .0008438
+			if "D2-out" in query:
+				lumi_to_dose = .0003995
+			if "D3-in" in query:
+				lumi_to_dose = .0008696
+			if "D2-out" in query:
+				lumi_to_dose = .0004180
+            
 
         #Run parse_lumi_file for double tuple of lumi with date and vbg with ROC name
         recorded_lumis = parse_lumi_file("/nfshome0/cgillesp/pom/cgi-bin/endpoints/lumi_date.txt")
