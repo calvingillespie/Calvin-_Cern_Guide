@@ -57,6 +57,19 @@ def run_brilcalc_from_dates(file_path, output_path):
     file_path (str): Path to the text file containing the dates.
     output_path (str): Path to the output text file to store brilcalc results.
     """
+
+	################################################################################
+    def to_brilcalc_date(date_str):
+
+	    # Needed to run new version of BrilCalc
+	
+        # Input:  MM/DD/YYYY HH:MM:SS
+        # Output: MM/DD/YY   HH:MM:SS
+        date_part, time_part = date_str.split()
+        month, day, year = date_part.split('/')
+        return "{}/{}/{} {}".format(month, day, year[-2:], time_part)
+    ##################################################################################
+	
     # Read dates from the input file
     with open(file_path, 'r') as file:
         dates = file.readlines()
@@ -66,10 +79,14 @@ def run_brilcalc_from_dates(file_path, output_path):
 
     # First date is the start date, others are end dates
     start_date = dates[0]
-
+    ##################################################################################
     # Function to run brilcalc with given start and end dates
     def run_brilcalc(start_date, end_date):
-        command = ['brilcalc', 'lumi', '-b', 'STABLE BEAMS', '--begin', start_date, '--end', end_date]
+		
+		start_date = to_brilcalc_date(start_date)
+        end_date   = to_brilcalc_date(end_date)
+
+        command = ['brilcalc', 'lumi', '-c', 'web', '-b', 'STABLE BEAMS', '--begin', start_date, '--end', end_date]
         try:
             process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdout, stderr = process.communicate()
@@ -80,7 +97,7 @@ def run_brilcalc_from_dates(file_path, output_path):
                 return "Error: " + stderr.decode('utf-8')
         except Exception as e:
             return "Exception: " + str(e)
-
+    ##################################################################################
     # Create the output file to store brilcalc results
     with open(output_path, 'w') as out_file:
         for end_date in dates[1:]:
@@ -200,4 +217,6 @@ def test():
 		#print("ROC: " + ROC +" ,Vbg : "+ str(vbg))
                 continue
         """
+#The following are commands that can be used to run code	
 ##test()
+#run_brilcalc_from_dates("/afs/cern.ch/user/c/cgillesp/dates_lyr1_updated.txt","/afs/cern.ch/user/c/cgillesp/lumi_lyr1_updated.txt")
