@@ -63,7 +63,7 @@ def update_plot(plot_name,mode,variable,graph_type,category,xaxis,query, run_num
             
 
         #Run parse_lumi_file for double tuple of lumi with date and vbg with ROC name
-        recorded_lumis = parse_lumi_file("/nfshome0/cgillesp/pom/cgi-bin/endpoints/lumi_date.txt")
+        recorded_lumis = parse_lumi_file("/nfshome0/cgillesp/pom/cgi-bin/endpoints/lumi_lyr1_updated.txt")
         
         vbg_inital = vbg_get()
 
