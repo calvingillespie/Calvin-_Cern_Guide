@@ -11,10 +11,11 @@ Crab Fetch is for the following:
   MClist.list
   EmobjectModV2.cpp
   anaylisis_script.sh
+  FrameworkJobReport.xml
 
 So I broke the Crab due to the lack of info on how to access a NanoAOD set for the info I needed. The best way I found to make it work for me was to use the DAS aggregation system to find the logic file name, copy them to the Datalist,
 and then have Crab_Submission.py send all the fetch requests to CMS servers. This will make mulitple files inside the EOS space. EmobjectModV2.cpp contains the code meant to make a data tree that will get sent back to EOS, 
-anaylisis_script.sh will run the code the CMS servers, and the remaining files are used to configure the request.
+anaylisis_script.sh will run the code the CMS servers, and the remaining files are used to configure the request. FramworkJOBReport.xml is needed to make the crab fetch work
 
 
 File Consolidations consist the following:
