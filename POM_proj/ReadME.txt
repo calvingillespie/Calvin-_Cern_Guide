@@ -10,3 +10,11 @@ Oracle database. You MUST create a workspace with the proper endpoints in order 
 There are additionally codes called ROC_list.py and fetch_ROC.py that are meant to get code on all ROCs for all runnumbers that have been pre-generated. 
 There is a way to get all the runnumbers, but note that only some ROCs are not functioning properly. The FPIX before the Run 3 Upgrades lack a lot data compared to the 
 BPIX due to high radiaiton damage on the forward calorimeter and Silcion tracker.
+
+THe following files are for setting up the work space:
+
+plot_update.py
+dates_lx.py
+compare_update.py
+dates.py
+set_up.py
